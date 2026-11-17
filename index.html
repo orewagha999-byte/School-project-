@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudyBuddy: turn your notes into a summary, flashcards and a quiz</title>
+<meta name="description" content="Paste your notes and get a highlighted summary, flashcards and a quiz. Runs entirely in your browser.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><span>StudyBuddy</span></h1>
+    <button id="theme" type="button" aria-label="Switch between light and dark mode">Light / dark</button>
+  </header>
+
+  <p class="lead">Paste your notes. Get the key points highlighted, flashcards to flip, and a quiz to check yourself.</p>
+
+  <section aria-label="Your notes">
+    <label for="notes" class="sr">Your notes</label>
+    <textarea id="notes" placeholder="Paste or type your notes here. Full sentences work best."></textarea>
+    <div class="row">
+      <span id="count" class="muted">0 words</span>
+      <label class="btn" for="file">Upload .txt or .md</label>
+      <input type="file" id="file" accept=".txt,.md,text/plain" hidden>
+      <button type="button" id="sample">Try a sample</button>
+      <button type="button" id="clear">Clear</button>
+      <button type="button" id="go" class="primary">Make study material</button>
+    </div>
+    <p id="msg" class="msg" role="status"></p>
+  </section>
+
+  <div id="results" hidden>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" data-tab="summary" aria-selected="true">Summary</button>
+      <button type="button" role="tab" data-tab="cards" aria-selected="false">Flashcards</button>
+      <button type="button" role="tab" data-tab="quiz" aria-selected="false">Quiz</button>
+    </div>
+
+    <section id="summary" class="panel">
+      <label class="len">Sentences to keep: <b id="lenv">4</b>
+        <input type="range" id="len" min="1" max="8" value="4">
+      </label>
+      <ul id="sumList"></ul>
+      <p class="muted">Key terms</p>
+      <div id="keys" class="chips"></div>
+    </section>
+
+    <section id="cards" class="panel" hidden>
+      <button type="button" id="fc" class="fc" aria-live="polite">
+        <small id="fcSide"></small>
+        <span id="fcText"></span>
+      </button>
+      <div class="row">
+        <button type="button" id="prev">Previous</button>
+        <span id="fcCount" class="muted"></span>
+        <button type="button" id="next">Next</button>
+        <button type="button" id="shuf">Shuffle</button>
+      </div>
+    </section>
+
+    <section id="quiz" class="panel" hidden>
+      <div id="quizBox"></div>
+    </section>
+  </div>
+
+  <footer class="muted">Everything runs in your browser. Your notes stay on your device.</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

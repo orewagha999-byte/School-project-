@@ -1,0 +1,57 @@
+:root{--bg:#f6f8fc;--surface:#fff;--ink:#16233f;--muted:#5d6985;--line:#d3dbec;--ruled:#e4e9f5;--blue:#2f5bea;--on:#fff;--mark:#ffe45c;--ok:#16895a;--bad:#c93c4a}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e1424;--surface:#161e33;--ink:#e8ecf6;--muted:#9aa6c4;--line:#2a3555;--ruled:#202a45;--blue:#7b9bff;--on:#0e1424;--ok:#4cc58d;--bad:#ff7d89}}
+:root[data-theme=dark]{--bg:#0e1424;--surface:#161e33;--ink:#e8ecf6;--muted:#9aa6c4;--line:#2a3555;--ruled:#202a45;--blue:#7b9bff;--on:#0e1424;--ok:#4cc58d;--bad:#ff7d89}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.6 "Atkinson Hyperlegible",system-ui,sans-serif}
+.wrap{max-width:44rem;margin:0 auto;padding:1.25rem 1rem 3rem}
+header{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1rem}
+h1{margin:0;font:800 2rem/1.1 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.02em}
+h1 span{background:linear-gradient(transparent 58%,var(--mark) 58%,var(--mark) 92%,transparent 92%);padding:0 .15em;color:var(--ink)}
+:root[data-theme=dark] h1 span,:root:not([data-theme=light]) h1 span{color:var(--ink)}
+.lead{margin:0 0 1.25rem;max-width:34rem}
+.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+textarea{display:block;width:100%;min-height:15rem;resize:vertical;padding:0 1rem;border:1px solid var(--line);border-radius:8px;color:inherit;font:inherit;line-height:2rem;
+  background:repeating-linear-gradient(var(--surface),var(--surface) calc(2rem - 1px),var(--ruled) calc(2rem - 1px),var(--ruled) 2rem) local}
+textarea::placeholder{color:var(--muted)}
+
+button,.btn{display:inline-block;padding:.5rem 1rem;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;text-align:center}
+button:hover,.btn:hover{border-color:var(--blue)}
+.primary{background:var(--blue);border-color:var(--blue);color:var(--on)}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:.75rem 0}
+.row #count,.row #fcCount{margin-right:auto}
+#go{margin-left:auto}
+.msg{min-height:1.5rem;margin:0;color:var(--bad)}
+
+.tabs{display:flex;gap:.25rem;margin:1.25rem 0 1rem;border-bottom:1px solid var(--line)}
+.tabs button{border:0;border-bottom:3px solid transparent;border-radius:0;background:none;padding:.6rem 1rem}
+.tabs button[aria-selected=true]{border-bottom-color:var(--blue);color:var(--blue)}
+
+.len{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+.len input{flex:1;min-width:8rem;accent-color:var(--blue)}
+#sumList{padding-left:1.25rem;margin:0 0 1.5rem}
+#sumList li{margin-bottom:.9rem;max-width:40rem}
+mark{background:linear-gradient(transparent 15%,var(--mark) 15%,var(--mark) 92%,transparent 92%);color:#16233f;padding:0 .12em;border-radius:2px}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{padding:.1rem .7rem;border:1px solid var(--line);border-radius:99px;background:var(--surface)}
+
+.fc{display:flex;flex-direction:column;justify-content:center;gap:.75rem;width:100%;min-height:13rem;padding:1.5rem;text-align:left;font-weight:400;font-size:1.25rem;line-height:1.5;border-radius:12px}
+.fc small{color:var(--muted);font-size:.9rem;font-weight:700}
+.fc.back{border-color:var(--blue);border-width:2px}
+
+.q{font-size:1.2rem;font-weight:700;max-width:38rem}
+.opt{display:block;width:100%;margin:.5rem 0;text-align:left;font-weight:400;font-size:1rem}
+.opt:disabled{cursor:default;color:var(--ink)}
+.opt.right{border-color:var(--ok);border-width:2px;background:color-mix(in srgb,var(--ok) 14%,var(--surface))}
+.opt.wrong{border-color:var(--bad);border-width:2px;background:color-mix(in srgb,var(--bad) 14%,var(--surface))}
+#quizBox h3{font:800 1.5rem "Bricolage Grotesque",system-ui,sans-serif;margin:.5rem 0}
+#quizBox .primary{margin-top:.75rem}
+footer{margin-top:2.5rem;font-size:.9rem}
+
+@media(max-width:30rem){#go{width:100%;margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
